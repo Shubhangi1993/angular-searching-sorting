@@ -7,8 +7,9 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./employees-list.component.css']
 })
 export class EmployeesListComponent implements OnInit {
- listHeadersObj = ['Id', 'Name', 'Phone', 'City', 'Address 1', 'Address 2', 'Postal Code', 'Edit'];
+ listHeadersObj = ['Id', 'Name', 'Phone', 'City', 'Address 1', 'Address 2', 'Postal Code'];
   employeeList = [];
+  searchByKeyword: string;
   constructor(
     private service: CommonService
   ) { }
