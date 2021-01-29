@@ -1,3 +1,8 @@
+<div class="col-md-12 pad-top pad-bottom">
+    <div class="btn-group">
+        <button class="btn btn-secondary" (click)="onClickAdd()">Add New</button>
+    </div>
+</div>
 <div class="col-md-12 margin-top">
     <input [(ngModel)]="searchByKeyword" type='text' class="margin-top margin-bottom" placeholder="Search field" />
     <table class="table">
@@ -17,6 +22,7 @@
                 <td>{{listItem.address.address_line1}}</td>
                 <td>{{listItem.address.address_line2}}</td>
                 <td>{{listItem.address.postal_code}}</td>
+                <td (click)="onEditClick(listItem)">Edit</td>
             </tr>
             <tr *ngIf="employeeList?.length == 0">
                 <td attr.colspan="{{listHeadersObj?.length}}">
@@ -25,5 +31,4 @@
             </tr>
         </tbody>
     </table>
-
 </div>

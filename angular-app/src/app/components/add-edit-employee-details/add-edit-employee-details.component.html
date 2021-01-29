@@ -1,0 +1,58 @@
+<form [formGroup]="employeeForm">
+    <div class="row">
+        <div class="form-group col-md-2 required">
+            <label id="lblEmployeeName"> Employee Name
+                    <span class="text-danger">
+                        <strong>*</strong>
+                    </span>
+                </label>
+            <input id="txtEmployeeName" type="text" placeholder="Enter Name" formControlName="EmployeeName" class="form-control" autocomplete="off" [ngClass]="{ 'is-invalid': formSubmitted && emplyeeF.EmployeeName.errors }" />
+        </div>
+        <div class="form-group col-md-2 required">
+            <label id="lblPhone"> Phone
+                    <span class="text-danger">
+                        <strong>*</strong>
+                    </span>
+                </label>
+            <input id="txtPhone" Number type="text" placeholder="Enter phone no." formControlName="Phone" class="form-control" autocomplete="off" [ngClass]="{ 'is-invalid': formSubmitted && emplyeeF.Phone.errors }" />
+        </div>
+        <div class="form-group col-md-2 required">
+            <label id="lblCity"> City
+                </label>
+            <input id="txtCity" type="text" placeholder="Enter City" formControlName="City" class="form-control" autocomplete="off" trim="blur" maxlength="99" />
+        </div>
+        <div class="form-group col-md-2 required">
+            <label id="lblAddress1"> Address 1
+                </label>
+            <input id="txtAddress1" type="text" placeholder="Enter Address1" formControlName="Address1" class="form-control" autocomplete="off" />
+        </div>
+        <div class="form-group col-md-2 required">
+            <label id="lblAddress2"> Address 2
+                </label>
+            <input id="txtAddress2" type="text" placeholder="Enter Address2" formControlName="Address2" class="form-control" autocomplete="off" />
+        </div>
+        <div class="form-group col-md-2 required">
+            <label id="lblPostalCode"> Postal Code
+                </label>
+            <input id="txtPostalCode" type="text" placeholder="Enter Postal Code" formControlName="PostalCode" class="form-control" autocomplete="off" />
+        </div>
+    </div>
+    <!-- To show validation error message, we can use toaster service -->
+    <div *ngIf="emplyeeF.EmployeeName.invalid && emplyeeF.EmployeeName.dirty" class="alert alert-danger">
+        <div *ngIf="emplyeeF.EmployeeName.errors.required">
+            Name is required.
+        </div>
+        <div *ngIf="emplyeeF.EmployeeName.errors.minlength">
+            Name must be at least 3 characters long.
+        </div>
+    </div>
+    <div *ngIf="emplyeeF.Phone.invalid && emplyeeF.Phone.dirty" class="alert alert-danger">
+        <div *ngIf="emplyeeF.Phone.errors.required">
+            Phone number is required.
+        </div>
+    </div>
+    <div class="form-group col-md-12 text-right no-pad">
+        <button class="btn btn-primary margin-right" (click)="onSaveClick()">Save</button>
+        <button class="btn btn-secondary" (click)="onBackClick()">Back</button>
+    </div>
+</form>

@@ -15,6 +15,10 @@ body {
     margin-left: auto;
 }
 
+.no-pad {
+    padding: 0px;
+}
+
 .pad-top {
     padding-top: 10px
 }
@@ -33,6 +37,10 @@ body {
 
 .margin-top {
     margin-top: 15px
+}
+
+.margin-right {
+    margin-right: 15px;
 }
 
 .margin-bottom {
