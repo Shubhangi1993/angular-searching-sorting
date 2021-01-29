@@ -1,0 +1,29 @@
+<div class="col-md-12 margin-top">
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let col of listHeadersObj">
+                    <span> {{col}}</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let listItem of employeeList">
+                <td>{{listItem.id}}</td>
+                <td>{{listItem.name}}</td>
+                <td [ngClass]="{'font-weight-bold': listItem.phone === 'NA'}">{{listItem.phone}}</td>
+                <td>{{listItem.address.city}}</td>
+                <td>{{listItem.address.address_line1}}</td>
+                <td>{{listItem.address.address_line2}}</td>
+                <td>{{listItem.address.postal_code}}</td>
+                <td>Edit</td>
+            </tr>
+            <tr *ngIf="employeeList?.length == 0">
+                <td attr.colspan="{{listHeadersObj?.length}}">
+                    <span>No Records Found</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
